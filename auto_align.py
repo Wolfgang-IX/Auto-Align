@@ -163,7 +163,8 @@ def get_symmetry_plane(normals, positions):
     plane[:, 3] = plane[:, 3] / (plane_centers_std + 1e-6)
 
     # Voting
-    plane_int = np.rint(plane / SYMMETRY_BUCKET_SIZE).astype(np.int)
+   #FIX plane_int = np.rint(plane / SYMMETRY_BUCKET_SIZE).astype(np.int)
+    plane_int = np.rint(plane / SYMMETRY_BUCKET_SIZE).astype(int)
     plane_range = np.max(plane_int, axis=0) - np.min(plane_int, axis=0) + 1
     plane_int_hash = plane_int[:, 0] + plane_int[:, 1] * plane_range[0] \
         + plane_int[:, 2] * plane_range[0] * plane_range[1] \
